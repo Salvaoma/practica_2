@@ -1,4 +1,4 @@
-from database import crear_base, SessionLocal
+from basedatos import crear_base, SessionLocal
 import crud
 
 def menu():
