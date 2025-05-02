@@ -1,6 +1,9 @@
 from sqlalchemy.orm import Session
 from catalogo import PRODUCTO, CATEGORIA
-from typing import Optional, List
+from typing import Optional, List, Type
+
+from database.catalogo import PRODUCTO, CATEGORIA
+
 
 # ---------- CATEGORIA ----------
 
@@ -11,7 +14,7 @@ def crear_categoria(db: Session, nombre: str) -> CATEGORIA:
     db.refresh(categoria)
     return categoria
 
-def obtener_categorias(db: Session) -> List[CATEGORIA]:
+def obtener_categorias(db: Session) -> list[Type[CATEGORIA]]:
     return db.query(CATEGORIA).all()
 
 def obtener_categoria_por_id(db: Session, categoria_id: int) -> Optional[CATEGORIA]:
@@ -41,7 +44,7 @@ def crear_producto(db: Session, nombre: str, descripcion: str) -> PRODUCTO:
     db.refresh(producto)
     return producto
 
-def obtener_productos(db: Session) -> List[PRODUCTO]:
+def obtener_productos(db: Session) -> list[Type[PRODUCTO]]:
     return db.query(PRODUCTO).all()
 
 def obtener_producto_por_id(db: Session, producto_id: int) -> Optional[PRODUCTO]:
