@@ -1,4 +1,4 @@
-from database import SessionLocal
+from database import crear_base, SessionLocal
 import crud
 
 def menu():
@@ -14,7 +14,9 @@ def menu():
     print("9. Salir")
 
 def main():
+    crear_base()
     db = SessionLocal()
+
 
     while True:
         menu()
